@@ -1,0 +1,6 @@
+public class HelloWorld {
+    public static void main(String[] args) {
+        int x = 9;
+        int y = 90;
+        String myString = "Hello";
+        String yourString = "World";}
