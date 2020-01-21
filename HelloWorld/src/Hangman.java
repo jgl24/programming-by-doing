@@ -8,6 +8,7 @@ public class Hangman {
         boolean playing = true;
         int rightGuess = 0;
         int wrongGuess = 0;
+        System.out.println("Welcome to Hangman!");
         System.out.print("Select a word: ");
          String chosenWord = keyboard.nextLine();
          System.out.println("\n\n\n\n\n\n\n\n\n\n");
