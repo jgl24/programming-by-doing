@@ -9,9 +9,17 @@ public class Hangman {
         int rightGuess = 0;
         int wrongGuess = 0;
         System.out.println("Welcome to Hangman!");
+        System.out.println("\n");
+        System.out.println("This is a two player game. " +
+                " We will play best 2 / 3" + "\n");
+        System.out.print("Player one please enter your name: ");
+        String playerOne = keyboard.nextLine();
+        System.out.print("Player two please enter your name: ");
+        String playertwo = keyboard.nextLine();
+
         System.out.print("Select a word: ");
-         String chosenWord = keyboard.nextLine();
-         System.out.println("\n\n\n\n\n\n\n\n\n\n");
+        String chosenWord = keyboard.nextLine();
+        System.out.println("\n\n\n\n\n\n\n\n\n\n");
         System.out.print("Word: ");
 
         /* think of was to make this are more advanced project you can add to a portfolio (40%)
