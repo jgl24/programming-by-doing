@@ -1,13 +1,12 @@
-import java.util.Random;
 import java.util.Scanner;
 
 public class Hangman {
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
-        Random rand = new Random();
         boolean playing = true;
         int rightGuess = 0;
         int wrongGuess = 0;
+        int attempts = 7;
         System.out.println("Welcome to Hangman!");
         System.out.println("\n");
         System.out.println("This is a two player game. " +
@@ -23,13 +22,16 @@ public class Hangman {
         System.out.print("Word: ");
 
         /* think of was to make this are more advanced project you can add to a portfolio (40%)
-        - display the wrong guesses the user enters
         - display the actual hangman
         - allow for only one character to be entered at on time
-        - display a welcome to hangman sign
         - make it a multi-player game where the players play best out of three rounds
         - make it not case sensitive
          */
+        char[] playersWrongGuess = new char[attempts];
+
+        for (int i = 0; i < attempts; i++) {
+            playersWrongGuess[i] = ' ';
+        }
 
         String[] letters = new String[chosenWord.length()]; // set an array with all blank spaces that holds as many elements as there are letters in the word
         for (int i = 0; i < chosenWord.length(); i++) {
@@ -60,6 +62,7 @@ public class Hangman {
 
                 String letterChecker = Character.toString(randomWordArray[i]);
                 // converts each element in randomWordArray to a String instead of a char
+
                 if (guess.equals(letterChecker)) {
                     letters[i] = guess;
                     rightGuess++;
@@ -71,8 +74,14 @@ public class Hangman {
                 }
             }
 
+
             if (!found) {
+                System.out.print("Wrong guesses: ");
+                playersWrongGuess[wrongGuess] = guess.charAt(0); //charAt converts it to array of characters and gives
+                // you char at the index
                 wrongGuess++;
+                printArray(playersWrongGuess);
+
             }
 
             if (wrongGuess > 6) {
@@ -87,5 +96,14 @@ public class Hangman {
                 System.out.print(letters[i]);
             } // prints off initial array but with updated letters if guessed
         }
+    }
+
+    public static void printArray(char[] array) {
+
+        for (int i = 0; i < array.length; i++) {
+
+            System.out.print(array[i] + " ");
+        }
+        System.out.println();
     }
 }
