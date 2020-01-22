@@ -11,6 +11,7 @@ public class Hangman {
         System.out.println("\n");
         System.out.println("This is a two player game. " +
                 " We will play best 2 / 3" + "\n");
+
         System.out.print("Player one please enter your name: ");
         String playerOne = keyboard.nextLine();
         System.out.print("Player two please enter your name: ");
@@ -21,11 +22,11 @@ public class Hangman {
         System.out.println("\n\n\n\n\n\n\n\n\n\n");
         System.out.print("Word: ");
 
+
         /* think of was to make this are more advanced project you can add to a portfolio (40%)
         - display the actual hangman
         - allow for only one character to be entered at on time
         - make it a multi-player game where the players play best out of three rounds
-        - make it not case sensitive
          */
         char[] playersWrongGuess = new char[attempts];
 
@@ -43,6 +44,7 @@ public class Hangman {
         } // this prints off the first set of all blank spaces
 
         while (playing) {
+
             System.out.println();
             System.out.println("Guess: ");
             String guess = keyboard.nextLine();
@@ -63,7 +65,8 @@ public class Hangman {
                 String letterChecker = Character.toString(randomWordArray[i]);
                 // converts each element in randomWordArray to a String instead of a char
 
-                if (guess.equals(letterChecker)) {
+
+                if (guess.equals(letterChecker) || guess.equalsIgnoreCase(letterChecker)) {
                     letters[i] = guess;
                     rightGuess++;
                     found = true;
