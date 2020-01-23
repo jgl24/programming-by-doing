@@ -3,21 +3,29 @@ import java.util.Scanner;
 public class Hangman {
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
-        boolean playing = true;
         int rightGuess = 0;
         int wrongGuess = 0;
         int attempts = 7;
+        int currentRound = 1;
+        int playerOneScore = 0;
+        int playerTwoScore = 0;
+        boolean gameOver = false;
+
+
         System.out.println("Welcome to Hangman!");
         System.out.println("\n");
         System.out.println("This is a two player game. " +
-                " We will play best 2 / 3" + "\n");
+                " We will play best 2 / 3." + "\n");
 
         System.out.print("Player one please enter your name: ");
         String playerOne = keyboard.nextLine();
         System.out.print("Player two please enter your name: ");
-        String playertwo = keyboard.nextLine();
+        String playerTwo = keyboard.nextLine();
 
-        System.out.print("Select a word: ");
+        String currentGuesser = playerTwo;
+
+
+        System.out.print(playerOne + " select a word: ");
         String chosenWord = keyboard.nextLine();
         System.out.println("\n\n\n\n\n\n\n\n\n\n");
         System.out.print("Word: ");
@@ -42,8 +50,11 @@ public class Hangman {
         for (int i = 0; i < chosenWord.length(); i++) {
             System.out.print(letters[i]);
         } // this prints off the first set of all blank spaces
+        System.out.println();
 
-        while (playing) {
+        while (currentRound < 3) {
+
+            System.out.println("Current round: " + currentRound);
 
             System.out.println();
             System.out.println("Guess: ");
@@ -72,7 +83,27 @@ public class Hangman {
                     found = true;
                     if (rightGuess == chosenWord.length()) {
                         System.out.println("You guessed the word :) ");
-                        playing = false;
+                        currentRound++;
+                        if (currentGuesser.equals(playerOne)) {
+                            playerOneScore++;
+                            System.out.println("Congrats " + playerOne + " your score is " + playerOneScore);
+                            currentGuesser = playerTwo;
+                            System.out.print(playerOne + " Select a word: ");
+                            chosenWord = keyboard.nextLine();
+                            System.out.println("\n\n\n\n\n\n\n\n\n\n");
+                            System.out.print("Word: ");
+                        } else if (currentGuesser.equals(playerTwo)) {
+                            playerTwoScore++;
+                            System.out.println("Congrats " + playerTwo + " your score is " + playerTwoScore);
+                            currentGuesser = playerOne;
+                            System.out.print(playerTwo + " Select a word: ");
+                            chosenWord = keyboard.nextLine();
+                            System.out.println("\n\n\n\n\n\n\n\n\n\n");
+                            System.out.print("Word: ");
+
+                        }
+
+
                     }
                 }
             }
@@ -89,15 +120,44 @@ public class Hangman {
 
             if (wrongGuess > 6) {
                 System.out.println();
-                System.out.println("You got hanged ;(");
-                playing = false;
-                //end game
+                currentRound++;
+                if (currentGuesser.equals(playerOne)) {
+                    System.out.println(playerOne + " you got hanged ;(");
+                    currentGuesser = playerTwo;
+                    System.out.print(currentGuesser + " Select a word: ");
+                    chosenWord = keyboard.nextLine();
+                    System.out.println("\n\n\n\n\n\n\n\n\n\n");
+                    System.out.print(" Word: ");
+                } else if (currentGuesser.equals(playerTwo)) {
+                    System.out.println(playerTwo + " you got hanged ;(");
+                    currentGuesser = playerTwo;
+                    System.out.print(currentGuesser + " Select a word: ");
+                    chosenWord = keyboard.nextLine();
+                    System.out.println("\n\n\n\n\n\n\n\n\n\n");
+                    System.out.print("Word: ");
+                }
+
             }
 
             // sets blackspace equal to character if it finds it in the word
             for (int i = 0; i < chosenWord.length(); i++) {
                 System.out.print(letters[i]);
             } // prints off initial array but with updated letters if guessed
+        }
+        if (playerOneScore > playerTwoScore) {
+            System.out.println(playerOne + " is the winner! With a score of " + playerOneScore + " to " + playerTwoScore);
+            System.out.println();
+            System.out.println("Good game :)");
+        }
+        if (playerOneScore < playerTwoScore) {
+            System.out.println(playerTwo + " is the winner! With a score of " + playerTwoScore + " to " + playerOneScore);
+            System.out.println();
+            System.out.println("Good game :)");
+        }
+        if (playerOneScore == playerTwoScore) {
+            System.out.println("It was a draw ");
+            System.out.println();
+            System.out.println("Good game :)");
         }
     }
 
