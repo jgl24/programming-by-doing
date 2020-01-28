@@ -21,12 +21,12 @@ public class Hangman {
         String playerOne = keyboard.nextLine();
         System.out.print("Player two please enter your name: ");
         String playerTwo = keyboard.nextLine();
-        String currentWordSelctor = playerOne;
+        String currentWordSelector = playerOne;
         String currentGuesser = playerTwo;
 
 
         while (currentRound < 3 && !gameOver) {
-            System.out.print(currentWordSelctor + " select a word: ");
+            System.out.print(currentWordSelector + " select a word: ");
             String chosenWord = keyboard.nextLine();
             System.out.println("\n\n\n\n\n\n\n\n\n\n");
             System.out.print("Word: ");
@@ -63,6 +63,7 @@ public class Hangman {
 
 
                 // creates a char array
+
                 char[] randomWordArray = new char[chosenWord.length()];
 
                 for (int i = 0; i < chosenWord.length(); i++) {
@@ -88,17 +89,30 @@ public class Hangman {
                             if (currentGuesser.equals(playerOne)) {
                                 playerOneScore++;
                                 System.out.println("Congrats " + playerOne + " your score is " + playerOneScore);
-                                currentWordSelctor = playerOne;
-                                System.out.print(playerOne + " Select a word: ");
+                                currentWordSelector = playerOne;
+                                System.out.print(playerOne + " select a word: ");
                                 chosenWord = keyboard.nextLine();
+
+
+                                String[] newBlankArray = generateBlankArray(chosenWord);
+                                printBlankSpaces(chosenWord, newBlankArray);
+                                copiesCharacter(chosenWord);
+                                letterCompare(chosenWord, guess, letterChecker, randomWordArray, letters);
+
+
                                 System.out.println("\n\n\n\n\n\n\n\n\n\n");
                                 System.out.print("Word: ");
+
                             } else if (currentGuesser.equals(playerTwo)) {
                                 playerTwoScore++;
                                 System.out.println("Congrats " + playerTwo + " your score is " + playerTwoScore);
-                                currentWordSelctor = playerTwo;
-                                System.out.print(playerTwo + " Select a word: ");
+                                currentWordSelector = playerTwo;
+                                System.out.print(playerTwo + " select a word: ");
                                 chosenWord = keyboard.nextLine();
+                                generateBlankArray(chosenWord);
+                                printBlankSpaces(chosenWord, letters);
+                                copiesCharacter(chosenWord);
+                                letterCompare(chosenWord, guess, letterChecker, randomWordArray, letters);
                                 System.out.println("\n\n\n\n\n\n\n\n\n\n");
                                 System.out.print("Word: ");
 
@@ -124,20 +138,31 @@ public class Hangman {
                     currentRound++;
                     if (currentGuesser.equals(playerOne)) {
                         System.out.println(playerOne + " you got hanged ;(");
-                        currentWordSelctor = playerOne;
+                        currentWordSele
+                                ctor = playerOne;
                         currentGuesser = playerTwo;
-                        System.out.print(currentWordSelctor + " Select a word: ");
+                        System.out.print(currentWordSelector + " Select a word: ");
                         chosenWord = keyboard.nextLine();
+                        generateBlankArray(chosenWord);
+                        printBlankSpaces(chosenWord, letters);
+                        copiesCharacter(chosenWord);
+                        letterCompare(chosenWord, guess, letterChecker, randomWordArray, letters);
                         System.out.println("\n\n\n\n\n\n\n\n\n\n");
                         System.out.print(" Word: ");
+
                     } else if (currentGuesser.equals(playerTwo)) {
                         System.out.println(playerTwo + " you got hanged ;(");
-                        currentWordSelctor = playerTwo;
+                        currentWordSelector = playerTwo;
                         currentGuesser = playerOne;
-                        System.out.print(currentWordSelctor + " Select a word: ");
+                        System.out.print(currentWordSelector + " Select a word: ");
                         chosenWord = keyboard.nextLine();
+                        generateBlankArray(chosenWord);
+                        printBlankSpaces(chosenWord, letters);
+                        copiesCharacter(chosenWord);
+                        letterCompare(chosenWord, randomWordArray);
                         System.out.println("\n\n\n\n\n\n\n\n\n\n");
                         System.out.print("Word: ");
+
                     }
 
                 }
@@ -163,6 +188,39 @@ public class Hangman {
                 System.out.println("Good game :)");
             }
 
+        }
+    }
+
+
+    public static void printBlankSpaces(String chosenWord, String[] letters) {
+        for (int i = 0; i < chosenWord.length(); i++) {
+            System.out.print(letters[i]);
+        }
+    }
+
+    public static String[] generateBlankArray(String chosenWord) {
+        String[] letters = new String[chosenWord.length()]; // set an array with all blank spaces that holds as many elements as there are letters in the word
+        for (int i = 0; i < chosenWord.length(); i++) {
+            letters[i] = " _ ";
+        }
+        return letters;
+    }
+
+    public static void copiesCharacter(String chosenWord) {
+        char[] randomWordArray = new char[chosenWord.length()];
+
+        for (int i = 0; i < chosenWord.length(); i++) {
+            randomWordArray[i] = chosenWord.charAt(i);
+        }
+    }
+
+    public static void letterCompare(String chosenWord, String guess, String letterChecker, char[] randomWordArray, String[] letters) {
+        for (int i = 0; i < chosenWord.length(); i++) {
+
+            letterChecker = Character.toString(randomWordArray[i]);
+            if (guess.equals(letterChecker) || guess.equalsIgnoreCase(letterChecker)) {
+                letters[i] = guess;
+            }
         }
     }
 }
