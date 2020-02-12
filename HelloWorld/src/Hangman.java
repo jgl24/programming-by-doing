@@ -11,6 +11,7 @@ public class Hangman {
         int playerTwoScore = 0;
 
 
+
         System.out.println("Welcome to Hangman!");
         System.out.println("\n");
         System.out.println("This is a two player game. ");
@@ -21,6 +22,7 @@ public class Hangman {
         String playerTwo = keyboard.nextLine();
         String currentWordSelector = playerOne;
         String currentGuesser = playerTwo;
+
 
 
         while (playerOneScore < 2 || playerTwoScore < 2) {
@@ -53,6 +55,8 @@ public class Hangman {
             }
             System.out.println();
 
+            // have another variable or array that holds the rightGuess and compares to another variable
+
             while (rightGuess != chosenWord.length() && wrongGuess < 7) {
 
                 System.out.println();
@@ -66,7 +70,30 @@ public class Hangman {
 
 
                 if (found > 0) {
-                    rightGuess += found;
+
+
+                    // consider having an array that holds the right guesses instead of using an int
+                    // loop through the array and assign already guessed char to a new variable called alreadyGuessed
+                    // if(guess != alreadyGuessed){
+                    //   rightGuess++;
+
+
+                    String[] alreadyGuessed = new String[randomWordArray.length];
+                    // creates a String array where I can store the already guessed words
+                    for (int j = 0; j < chosenWord.length(); j++) {
+                        alreadyGuessed[j] = guess;
+                        // so right now this is setting all the elements in the array equal to the guessed char??
+                    }
+                    if (!guess.equals(alreadyGuessed[0])) {
+                        rightGuess += found;
+                    } // so this is going to increment rightGuess
+
+                    // but wait that means that you wont ever add rightGuess++ bc
+                    // it is always equal so figure out how to only set
+                    // the right elements to the char
+//
+
+
                     if (rightGuess == chosenWord.length()) {
                         System.out.println();
                         System.out.println("You guessed the word :) ");
@@ -135,7 +162,6 @@ public class Hangman {
 
     public static int letterCompare(String firstRightGuess, char[] newRandomWordArray, String[] rightGuesses) {
         int found = 0;
-        String alreadyGuessed;
 
         for (int i = 0; i < newRandomWordArray.length; i++) {
 
