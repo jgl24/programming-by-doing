@@ -176,7 +176,6 @@ public class Hangman {
                 found++;
             }
         }
-
         return found;
     }
 
