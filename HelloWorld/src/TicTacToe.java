@@ -51,7 +51,7 @@ public class TicTacToe {
 
             }
         }
-        System.out.println("Game over :p");
+        System.out.println("threeOfAKind.Game over :p");
     }
 
     public static void initBoard() {

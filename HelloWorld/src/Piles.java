@@ -6,9 +6,9 @@ public class Piles {
         int A = 3;
         int B = 4;
         int C = 5;
-        System.out.print("Player 1, enter your name: ");
+        System.out.print("threeOfAKind.Player 1, enter your name: ");
         String playerOne = keyboard.nextLine();
-        System.out.print("Player 2, enter your name: ");
+        System.out.print("threeOfAKind.Player 2, enter your name: ");
 
         // player 1 has to pick a pile then player 2 gets to pick,
         // player 1 goes again

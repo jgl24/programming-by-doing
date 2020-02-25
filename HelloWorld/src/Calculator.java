@@ -1,43 +1,17 @@
-import java.util.Scanner;
-
 public class Calculator {
-    public static void main(String[] args) {
-        Scanner keyboard = new Scanner(System.in);
 
-        double a, b, c;
-        String operator;
+    private Floor floor = new Floor(0, 0);
+    private Carpet carpet = new Carpet(0);
 
-        do {
-            System.out.print("> ");
-            a = keyboard.nextDouble();
-            operator = keyboard.next();
-            b = keyboard.nextDouble();
-            if (a!= 0) {
-                if (operator.equals("+")) {
-                    c = a + b;
-                } else if (operator.equals("-")) {
-                    c = a - b;
-                } else if (operator.equals("*")) {
-                    c = a * b;
-                } else if (operator.equals("/")) {
-                    c = a / b;
-                } else if (operator.equals("^")){
-                    c = Math.pow(a,b);
-                } else if (operator.equals("%")){
-                    c = a % b;
-                }
-                else {
-                    System.out.println("Undefined operator: '" + operator + "'.");
-                    c = 0;
-                }
-                System.out.println(c);
-            } else {
-                System.out.println("Bye, now.");
-                break;
-            }
-
-            }
-            while (true);
-        }
+    public Calculator(Floor floor, Carpet carpet) {
+        this.floor = floor;
+        this.carpet = carpet;
     }
+
+    public double getTotalCost() {
+        return floor.getArea() * carpet.getCost();
+    }
+
+
+}
 

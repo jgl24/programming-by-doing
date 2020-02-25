@@ -10,27 +10,27 @@ public class RockPaperScissors {
 
         if (playerOne.equals("rock")) {
             if (playerTwo.equals("scissors")) {
-                System.out.println("Player one wins");
+                System.out.println("threeOfAKind.Player one wins");
             } else if (playerTwo.equals("paper")) {
-                System.out.println("Player two wins");
+                System.out.println("threeOfAKind.Player two wins");
             } else {
                 System.out.println("tie!!");
             }
         }
         if (playerOne.equals("paper")) {
             if (playerTwo.equals("rock")) {
-                System.out.println("Player one wins");
+                System.out.println("threeOfAKind.Player one wins");
             } else if (playerTwo.equals("scissors")) {
-                System.out.println("Player two wins");
+                System.out.println("threeOfAKind.Player two wins");
             } else {
                 System.out.println("tie!!");
             }
         }
         if (playerOne.equals("scissors")) {
             if (playerTwo.equals("rock")) {
-                System.out.println("Player 2 wins");
+                System.out.println("threeOfAKind.Player 2 wins");
             } else if (playerTwo.equals("paper")) {
-                System.out.println("Player 1 wins");
+                System.out.println("threeOfAKind.Player 1 wins");
             } else {
                 System.out.println("tie!!");
             }

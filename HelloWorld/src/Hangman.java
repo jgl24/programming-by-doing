@@ -11,26 +11,29 @@ public class Hangman {
         int playerTwoScore = 0;
 
 
-
         System.out.println("Welcome to Hangman!");
         System.out.println("\n");
         System.out.println("This is a two player game. ");
 
-        System.out.print("Player one please enter your name: ");
+        System.out.print("threeOfAKind.Player One please enter your name: ");
         String playerOne = keyboard.nextLine();
-        System.out.print("Player two please enter your name: ");
+        System.out.print("threeOfAKind.Player Two please enter your name: ");
         String playerTwo = keyboard.nextLine();
         String currentWordSelector = playerOne;
         String currentGuesser = playerTwo;
+        boolean gameOver = false;
 
 
+// bug found: try making the word a two letter word and guess the wrong letter at first
 
 
-        while (playerOneScore < 2 || playerTwoScore < 2) {
+        while (!gameOver) {
             System.out.print(currentWordSelector + " select a word: ");
             String chosenWord = keyboard.nextLine();
             System.out.println("\n\n\n\n\n\n\n\n\n\n");
+
             String[] alreadyGuessed = new String[chosenWord.length()];
+            // this string array will hold letters that have been guessed
 
 
             char[] playersWrongGuess = new char[attempts];
@@ -38,26 +41,29 @@ public class Hangman {
             for (int i = 0; i < attempts; i++) {
                 playersWrongGuess[i] = ' ';
             }
+            // fills an array of wrong guesses with blanks
 
 
             String[] letters = generateNewWordArray(chosenWord);
+            //generates string array the length of the chosenWord
 
             char[] randomWordArray = copiesCharacter(chosenWord);
+            // copies over each letter from chosen word in the for of a char and puts it into a char array
 
-            // this prints off the first set of all blank spaces
+
             System.out.println();
             System.out.println("Current round: " + currentRound);
-            System.out.println("Player One current score: " + playerOneScore);
-            System.out.println("Player Two current score: " + playerTwoScore);
+            System.out.println("threeOfAKind.Player One current score: " + playerOneScore);
+            System.out.println("threeOfAKind.Player Two current score: " + playerTwoScore);
             System.out.println();
             System.out.print("Word: ");
 
             for (int i = 0; i < chosenWord.length(); i++) {
                 System.out.print(letters[i]);
             }
+            // prints off first set of _ _ _ _ and any updates made to letters array
             System.out.println();
 
-            // have another variable or array that holds the rightGuess and compares to another variable
 
             while (rightGuess != chosenWord.length() && wrongGuess < 7) {
 
@@ -65,33 +71,36 @@ public class Hangman {
                 System.out.println("Guess: ");
                 String guess = keyboard.nextLine();
 
-                // String letterChecker = Character.toString(randomWordArray[i]);
-                // converts each element in randomWordArray to a String instead of a char
+
                 int found = letterCompare(guess, randomWordArray, letters);
                 printAnArray(letters);
+
+                // this function converts EACH  char in the array of letters to a string and compares it to guess
+                // since guess is a string
+                // if the char (now a string) matches to guess then guess = letters[i]
+                // and you found++ depending on the number of times said letter is found
 
 
                 if (found > 0) {
 
-
-                    // consider having an array that holds the right guesses instead of using an int
-                    // loop through the array and assign already guessed char to a new variable called alreadyGuessed
-                    // if(guess != alreadyGuessed){
-                    //   rightGuess++;
-
-
-                    // creates a String array where I can store the already guessed words
-
                     boolean matchesPreviousGuess = false;
+
+                    // this loop is checking if the letter that was guessed is inside the alreadyGuessed array
+                    // note that the first time alreadyGuessed won't contain anything but it is updated
+                    // at the top of the for loop
+
                     for (int j = 0; j < chosenWord.length(); j++) {
                         if (guess.equals(alreadyGuessed[j])) {
                             matchesPreviousGuess = true;
                         }
-                        // so right now this is setting all the elements in the array equal to the guessed char??
                     }
+
                     if (!matchesPreviousGuess) {
                         rightGuess += found;
                     }
+
+                    // if the letter hasn't already been guessed then we increment rightGuess
+                    // by the number of times that letter appears in the word
 
                     if (rightGuess == chosenWord.length()) {
                         System.out.println();
@@ -107,6 +116,11 @@ public class Hangman {
                             currentGuesser = playerOne;
                         }
                     }
+
+                    if (playerOneScore >= 2 || playerTwoScore >= 2) {
+                        gameOver = true;
+                    }
+
                 } else {
                     System.out.println();
                     System.out.print("Wrong guesses: ");
@@ -116,7 +130,9 @@ public class Hangman {
                     for (int i = 0; i < playersWrongGuess.length; i++) {
                         System.out.print(playersWrongGuess[i] + " ");
                     } // this will print off each wrong guess the player attempts
+
                     wrongGuess++;
+
                     if (wrongGuess > 6) {
                         rightGuess = 0;
                         System.out.println();
@@ -138,8 +154,15 @@ public class Hangman {
                 }
             }
             rightGuess = 0;
+            wrongGuess = 0;
 
 
+        }
+        System.out.println("\n\n\n\n\n\n\n\n\n\n");
+        if (playerOneScore > playerTwoScore) {
+            System.out.println("Good game, it looks like " + playerOne + " is the winner with a score of " + playerOneScore + " to " + playerTwoScore);
+        } else {
+            System.out.println("Good game, it looks like " + playerTwo + " is the winner with a score of " + playerTwoScore + " to " + playerOneScore);
         }
 
     }
