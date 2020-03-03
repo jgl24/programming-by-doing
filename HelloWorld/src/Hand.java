@@ -1,37 +1,36 @@
-import threeOfAKind.Card;
+//
+//import java.util.Random;
+//import java.util.Scanner;
+//
+//
+//public class Hand {
+//    Random random = new Random();
+//    Scanner keyboard = new Scanner(System.in);
+//    Card[] cards;
 
-import java.util.Random;
-import java.util.Scanner;
-
-
-public class Hand {
-    Random random = new Random();
-    Scanner keyboard = new Scanner(System.in);
-    Card cards = new Card[];
-
-
-    public Hand(Card[] cards) {
-
-    }
-
-    public void printHand() {
-
-    }
-
-    public Card discard() {
-        System.out.println("Which card would you like to get rid of? ");
-        Card discard = keyboard.nextLine();
-        return discard;
-    }
-
-    public void addToHand(Card addCard) {
-        Hand += addCard;
-    }
-
-    public Card threeOfAKind() {
-
-    }
-
-}
-
-
+//
+//    public Hand(Card[] cards) {
+//
+//    }
+//
+//    public void printHand() {
+//        // print each card in hand
+//    }
+//
+//    public Card discard() {
+//        System.out.println("Which card would you like to get rid of? ");
+//        Card discard = keyboard.nextLine();
+//        return discard;
+//    }
+//
+//    public void addToHand(Card addCard) {
+//        Hand += addCard;
+//    }
+//
+//    public Card threeOfAKind() {
+//
+//    }
+//
+//}
+//
+//

@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Deck {
 
-    Card cards[];
+    Card[] cards;
     int deckTracker;
 
     public Deck() {
@@ -28,7 +28,9 @@ public class Deck {
             Card tempCard = cards[i];
             cards[i] = cards[randomIndex];
             cards[randomIndex] = tempCard;
+            cards[deckTracker] = cards[0];
         }
+        System.out.println(deckTracker); // I think this should keep track of the top card in 0 index
     }
 
     public boolean isEmpty() {
@@ -37,13 +39,13 @@ public class Deck {
         } else return false;
     }
 
-    public Card draw() {
-        if (!cards.equals(""))
-            return cards;
-        else {
-            return ??;
-        }
-    }
+//    public Card draw() {
+//        if (!cards.equals(""))
+//            return cards[9];
+//        else {
+//            return ??;
+//        }
+//    }
 
 
 }
