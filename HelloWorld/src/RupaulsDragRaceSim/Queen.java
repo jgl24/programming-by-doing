@@ -9,10 +9,11 @@ public class Queen {
     private double humorStat;
     private double uniqStat;
     private double lipSyncStat;
+    private double personality;
 
 
     public Queen(String dragName, double danceStat, double actingStat,
-                 double sewingStat, double runwayStat, double humorStat, double uniqStat, double lipSyncStat) {
+                 double sewingStat, double runwayStat, double humorStat, double uniqStat, double lipSyncStat, double personality) {
         this.dragName = dragName;
         this.danceStat = inRange(danceStat);
         this.actingStat = inRange(actingStat);
@@ -21,6 +22,12 @@ public class Queen {
         this.humorStat = inRange(humorStat);
         this.uniqStat = inRange(uniqStat);
         this.lipSyncStat = inRange(lipSyncStat);
+        this.personality = personality;
+    }
+
+    public Queen(double runwayStat, double sewingStat) {
+        this.runwayStat = runwayStat;
+        this.sewingStat = sewingStat;
     }
 
     public double inRange(double score) {
