@@ -1,9 +1,9 @@
 package RupaulsDragRaceSim;
 
-public class DragRace {
+public class DragRaceMain {
     public static void main(String[] args) {
 
-        Queen aquaria = new Queen("Aquaria", 7, 8, 8, 10, 8, 8, 8, 8);
+        Queen aquaria = new Queen("Aquaria", 7, 8, 9, 10, 8, 8, 8, 8);
         Queen eureka = new Queen("Eureka", 8, 8, 6, 7, 8, 7, 8, 8);
         Queen kameronMichaels = new Queen("Kameron Michaels", 10, 4, 6, 7, 5, 6, 9, 5);
         Queen asiaOhara = new Queen("Asia O'Hara", 7, 7, 10, 8, 6, 7, 7, 7);
@@ -18,7 +18,8 @@ public class DragRace {
         Queen kalorie = new Queen("Kalorie Karbdashian", 6, 4, 4, 4, 4, 3, 7, 4);
         Queen vanjie = new Queen("Vanessa Vanjie", 6, 4, 4, 4, 7, 3, 3, 9);
 
-
+        Runway challengeOne = new Runway();
+        challengeOne.runwayWinner(aquaria, asiaOhara, mayhemMiller);
 
     }
 }
