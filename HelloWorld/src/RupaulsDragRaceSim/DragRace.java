@@ -18,7 +18,6 @@ public class DragRace {
         Queen kalorie = new Queen("Kalorie Karbdashian", 6, 4, 4, 4, 4, 3, 7, 4);
         Queen vanjie = new Queen("Vanessa Vanjie", 6, 4, 4, 4, 7, 3, 3, 9);
 
-        Runway challenge = new Runway(5, 6);
 
 
     }

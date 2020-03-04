@@ -25,9 +25,76 @@ public class Queen {
         this.personality = personality;
     }
 
-    public Queen(double runwayStat, double sewingStat) {
-        this.runwayStat = runwayStat;
+    public String getDragName() {
+        return dragName;
+    }
+
+    public void setDragName(String dragName) {
+        this.dragName = dragName;
+    }
+
+    public double getDanceStat() {
+        return danceStat;
+    }
+
+    public void setDanceStat(double danceStat) {
+        this.danceStat = danceStat;
+    }
+
+    public double getActingStat() {
+        return actingStat;
+    }
+
+    public void setActingStat(double actingStat) {
+        this.actingStat = actingStat;
+    }
+
+    public double getSewingStat() {
+        return sewingStat;
+    }
+
+    public void setSewingStat(double sewingStat) {
         this.sewingStat = sewingStat;
+    }
+
+    public double getRunwayStat() {
+        return runwayStat;
+    }
+
+    public void setRunwayStat(double runwayStat) {
+        this.runwayStat = runwayStat;
+    }
+
+    public double getHumorStat() {
+        return humorStat;
+    }
+
+    public void setHumorStat(double humorStat) {
+        this.humorStat = humorStat;
+    }
+
+    public double getUniqStat() {
+        return uniqStat;
+    }
+
+    public void setUniqStat(double uniqStat) {
+        this.uniqStat = uniqStat;
+    }
+
+    public double getLipSyncStat() {
+        return lipSyncStat;
+    }
+
+    public void setLipSyncStat(double lipSyncStat) {
+        this.lipSyncStat = lipSyncStat;
+    }
+
+    public double getPersonality() {
+        return personality;
+    }
+
+    public void setPersonality(double personality) {
+        this.personality = personality;
     }
 
     public double inRange(double score) {
