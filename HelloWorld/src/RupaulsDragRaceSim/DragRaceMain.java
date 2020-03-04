@@ -18,8 +18,13 @@ public class DragRaceMain {
         Queen kalorie = new Queen("Kalorie Karbdashian", 6, 4, 4, 4, 4, 3, 7, 4);
         Queen vanjie = new Queen("Vanessa Vanjie", 6, 4, 4, 4, 7, 3, 3, 9);
 
+
+        Queen[] queenBank = new Queen[]{aquaria, eureka, kameronMichaels, asiaOhara, mizCracker, monetXchange, theVixen,
+                monetXchange, moniqueHeart, blairStClair, mayhemMiller, dustayRay, yuhua, kalorie, vanjie};
+
+
         Runway challengeOne = new Runway();
-        challengeOne.runwayWinner(aquaria, asiaOhara, mayhemMiller);
+        challengeOne.runwayWinner(queenBank);
 
     }
 }
