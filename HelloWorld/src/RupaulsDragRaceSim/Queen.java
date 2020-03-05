@@ -9,7 +9,7 @@ public class Queen {
     private double humorStat;
     private double uniqStat;
     private double lipSyncStat;
-    private double personality;
+    private double personalityStat;
 
 
     public Queen(String dragName, double danceStat, double actingStat,
@@ -22,7 +22,7 @@ public class Queen {
         this.humorStat = inRange(humorStat);
         this.uniqStat = inRange(uniqStat);
         this.lipSyncStat = inRange(lipSyncStat);
-        this.personality = personality;
+        this.personalityStat = personality;
     }
 
     public String getDragName() {
@@ -89,12 +89,12 @@ public class Queen {
         this.lipSyncStat = lipSyncStat;
     }
 
-    public double getPersonality() {
-        return personality;
+    public double getPersonalityStat() {
+        return personalityStat;
     }
 
-    public void setPersonality(double personality) {
-        this.personality = personality;
+    public void setPersonalityStat(double personality) {
+        this.personalityStat = personality;
     }
 
     public double inRange(double score) {

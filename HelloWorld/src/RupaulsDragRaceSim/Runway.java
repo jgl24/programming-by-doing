@@ -2,6 +2,7 @@ package RupaulsDragRaceSim;
 
 public class Runway {
 
+
     public double getRunwayScore(Queen ex) {
         return ex.getRunwayStat() * ex.getSewingStat();
     }
@@ -24,31 +25,31 @@ public class Runway {
                 System.out.println(rWayWinner);
             }
         }
-
-
     }
 
-    public String getWinnerName(Queen ex) {
+    public void runwayBottom2(Queen[] remainingQueens) {
+        double currentLowest = Double.MAX_VALUE;
+        double secondLowest;
+        Queen bottomQueen = null;
+        Queen bottomQueen2 = null;
+        String bottom2;
 
-        return ex.getDragName();
+        for (int i = 0; i < remainingQueens.length; i++) {
+            double queenScore = getRunwayScore(remainingQueens[i]);
+            if (queenScore < currentLowest) {
+                currentLowest = queenScore;
+                bottomQueen = remainingQueens[i];
+
+            }
+        }
+
+        for (int i = 0; i < remainingQueens.length; i++) {
+            if (currentLowest == getRunwayScore(remainingQueens[i])) {
+                bottom2 = remainingQueens[i].getDragName();
+                System.out.println(bottom2 + " You made me want to run away after seeing you're runway. " +
+                        "I'm sorry my dear, you are up for elimination");
+            }
+        }
     }
-
-//
-//        double queenOneScore = getRunwayScore(a);
-//        double queenTwoScore = getRunwayScore(b);
-//        double queenThreeScore = getRunwayScore(c);
-//
-//        if (queenOneScore > queenTwoScore && queenOneScore > queenThreeScore) {
-//            System.out.println(a.getDragName());
-//
-//        }
-//        if (queenOneScore < queenTwoScore && queenTwoScore > queenThreeScore) {
-//            System.out.println(b.getDragName());
-//        }
-//        if (queenOneScore < queenTwoScore && queenTwoScore < queenThreeScore) {
-//            System.out.println(c.getDragName());
-//        }
-//    }
-
 
 }
