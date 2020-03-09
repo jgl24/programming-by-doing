@@ -29,7 +29,7 @@ public class DragRaceMain {
         Queen winner = challengeOne.runwayWinner(queenBank);
         challengeOne.runwayBottom2(queenBank);
         Runway loser = new Runway();
-        System.out.println(loser.runwayBottom2(queenBank));
+        System.out.println(loser.runwayBottom2(queenBank)); //
 
 
 //
