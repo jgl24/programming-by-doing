@@ -65,6 +65,13 @@ public class Queen {
         this.runwayStat = runwayStat;
     }
 
+    public void incrementRunway() {
+        if (this.runwayStat < 10) {
+            this.runwayStat++;
+        }
+    }
+
+
     public double getHumorStat() {
         return humorStat;
     }

@@ -1,5 +1,7 @@
 package RupaulsDragRaceSim;
 
+import java.util.Random;
+
 public class Challenges {
 
 
@@ -81,7 +83,7 @@ public class Challenges {
     }
 
     public double getDragOnDimeScore(Queen ex) {
-        return ex.getRunwayStat() * ex.getSewingStat() * ex.getUniqStat() / 3;
+        return ex.getRunwayStat() * ex.getSewingStat() * ex.getPersonalityStat() / 3;
     }
 
     ;
@@ -107,7 +109,7 @@ public class Challenges {
     }
 
     public double getPoseBallScore(Queen ex) {
-        return ex.getRunwayStat() * ex.getSewingStat() * ex.getDanceStat() / 3;
+        return ex.getRunwayStat() * ex.getHumorStat() * ex.getDanceStat() / 3;
     }
 
     ;
@@ -157,7 +159,7 @@ public class Challenges {
     }
 
     public double getThatBitchScore(Queen ex) {
-        return ex.getLipSyncStat() * ex.getPersonalityStat() * ex.getDanceStat() / 3;
+        return ex.getLipSyncStat() * ex.getPersonalityStat() * ex.getDanceStat() * ex.getUniqStat() / 4;
     }
 
     public void getThatBitchWinner(Queen[] remainingQueens) {
@@ -205,13 +207,19 @@ public class Challenges {
     }
 
 
-//    public boolean isElim(Queen[] elimination, double challengeScores){
-//        double lowestScore = 0;
-//
-//        for(int i = 0; i < elimination.length; i++){
-//            if(lowestScore >  )
-//        }
-//    }
-
+    public Queen isEliminated(Queen bottom1, Queen bottom2) {
+        Random random = new Random();
+        int dice = random.nextInt(10);
+        System.out.println("\n\n\n\n");
+        if (dice % 2 == 0) {
+            System.out.println(bottom1.getDragName() + " sashay away ");
+            Queen eliminatedGirl = bottom1;
+            return eliminatedGirl;
+        } else {
+            System.out.println(bottom2.getDragName() + " sashay away ");
+            Queen elimatedGirl = bottom2;
+            return elimatedGirl;
+        }
+    }
 
 }

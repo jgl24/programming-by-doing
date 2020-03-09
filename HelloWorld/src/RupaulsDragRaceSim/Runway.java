@@ -7,9 +7,10 @@ public class Runway {
         return ex.getRunwayStat() * ex.getSewingStat();
     }
 
-    public void runwayWinner(Queen[] remainingQueens) {
+    public Queen runwayWinner(Queen[] remainingQueens) {
         double highestScore = 0;
         String rWayWinner;
+        Queen winner = null;
 
 
         for (int i = 0; i < remainingQueens.length; i++) {
@@ -21,35 +22,50 @@ public class Runway {
 
         for (int i = 0; i < remainingQueens.length; i++) {
             if (highestScore == getRunwayScore(remainingQueens[i])) {
+                remainingQueens[i].incrementRunway();
+                winner = remainingQueens[i];
                 rWayWinner = remainingQueens[i].getDragName();
                 System.out.println(rWayWinner);
             }
         }
+        return winner;
     }
 
-    public void runwayBottom2(Queen[] remainingQueens) {
-        double currentLowest = Double.MAX_VALUE;
-        double secondLowest;
+    public Queen runwayBottom2(Queen[] remainingQueens) {
+        double lowest = Double.MAX_VALUE;
+        double secondLowest = Double.MAX_VALUE;
         Queen bottomQueen = null;
         Queen bottomQueen2 = null;
-        String bottom2;
+
 
         for (int i = 0; i < remainingQueens.length; i++) {
             double queenScore = getRunwayScore(remainingQueens[i]);
-            if (queenScore < currentLowest) {
-                currentLowest = queenScore;
+            if (queenScore < lowest) {
+                lowest = queenScore;
                 bottomQueen = remainingQueens[i];
-
+            } else if (queenScore < secondLowest && secondLowest > lowest) {
+                secondLowest = queenScore;
+                bottomQueen2 = remainingQueens[i];
             }
         }
 
-        for (int i = 0; i < remainingQueens.length; i++) {
-            if (currentLowest == getRunwayScore(remainingQueens[i])) {
-                bottom2 = remainingQueens[i].getDragName();
-                System.out.println(bottom2 + " You made me want to run away after seeing you're runway. " +
-                        "I'm sorry my dear, you are up for elimination");
-            }
-        }
+        System.out.println();
+
+        System.out.println(bottomQueen.getDragName() + " You made me want to run away after seeing you're outfit. " +
+                "I'm sorry my dear, you are up for elimination");
+
+        System.out.println();
+
+        System.out.println(bottomQueen2.getDragName() + " You made me want to run away after seeing you're outfit. " +
+                "I'm sorry my dear, you are up for elimination");
+
+
+        Challenges elimination = new Challenges();
+        Queen eliminatedGirl = elimination.isEliminated(bottomQueen, bottomQueen2);
+        return eliminatedGirl;
+
+
     }
+
 
 }
