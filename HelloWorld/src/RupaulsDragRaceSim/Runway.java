@@ -11,6 +11,7 @@ public class Runway {
         double highestScore = 0;
         String rWayWinner;
         Queen winner = null;
+        System.out.println();
 
 
         for (int i = 0; i < remainingQueens.length; i++) {
@@ -20,14 +21,17 @@ public class Runway {
             }
         }
 
+
         for (int i = 0; i < remainingQueens.length; i++) {
             if (highestScore == getRunwayScore(remainingQueens[i])) {
                 remainingQueens[i].incrementRunway();
                 winner = remainingQueens[i];
                 rWayWinner = remainingQueens[i].getDragName();
-                System.out.println(rWayWinner);
+                System.out.print(rWayWinner);
             }
         }
+        System.out.println(", congratulations my dear, you are the winner of this weeks runway");
+
         return winner;
     }
 
@@ -63,8 +67,6 @@ public class Runway {
         Challenges elimination = new Challenges();
         Queen eliminatedGirl = elimination.isEliminated(bottomQueen, bottomQueen2);
         return eliminatedGirl;
-
-
     }
 
 

@@ -5,6 +5,11 @@ import java.util.Random;
 public class Challenges {
 
 
+    public Challenges() {
+
+    }
+
+
     // have each challenge be an object of the Challenge class
     public double getSnatchGameScore(Queen ex) {
         return ex.getHumorStat() * ex.getActingStat() * ex.getPersonalityStat() / 3;
@@ -217,9 +222,23 @@ public class Challenges {
             return eliminatedGirl;
         } else {
             System.out.println(bottom2.getDragName() + " sashay away ");
-            Queen elimatedGirl = bottom2;
-            return elimatedGirl;
+            Queen eliminatedGirl = bottom2;
+            return eliminatedGirl;
         }
+    }
+
+    public Queen[] queensRemaining(Queen[] queenBank) {
+        Runway getQueensLeft = new Runway();
+        Queen eliminatedQueen = getQueensLeft.runwayBottom2(queenBank);
+        System.out.println("Queens left in competition: ");
+        for (int i = 0; i < queenBank.length; i++) {
+            if (queenBank[i].getDragName().equals(eliminatedQueen.getDragName())) {
+                queenBank[i].setDragName("null");
+            }
+            System.out.println(queenBank[i].getDragName());
+        }
+
+        return queenBank;
     }
 
 }
