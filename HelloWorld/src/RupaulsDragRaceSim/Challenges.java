@@ -4,12 +4,6 @@ import java.util.Random;
 
 public class Challenges {
 
-
-    public Challenges() {
-
-    }
-
-
     // have each challenge be an object of the Challenge class
     public double getSnatchGameScore(Queen ex) {
         return ex.getHumorStat() * ex.getActingStat() * ex.getPersonalityStat() / 3;
@@ -68,6 +62,7 @@ public class Challenges {
     ;
 
     public void getPoliticalAdWinner(Queen[] remainingQueens) {
+
         double highestScore = 0;
         String PoliticalAdWinner;
 
@@ -94,6 +89,7 @@ public class Challenges {
     ;
 
     public void getDragOnDimeWinner(Queen[] remainingQueens) {
+
         double highestScore = 0;
         String dragOnDimeWinner;
 
@@ -120,6 +116,7 @@ public class Challenges {
     ;
 
     public void getPoseBallWinner(Queen[] remainingQueens) {
+
         double highestScore = 0;
         String poseBallWinner;
 
@@ -144,6 +141,7 @@ public class Challenges {
     }
 
     public void getDragDebateWinner(Queen[] remainingQueens) {
+
         double highestScore = 0;
         String dragDebateWinner;
 
@@ -168,6 +166,7 @@ public class Challenges {
     }
 
     public void getThatBitchWinner(Queen[] remainingQueens) {
+
         double highestScore = 0;
         String thatBitchWinner;
 
@@ -192,6 +191,7 @@ public class Challenges {
     }
 
     public void getVicBallWinner(Queen[] remainingQueens) {
+
         double highestScore = 0;
         String vicBallWinner;
 

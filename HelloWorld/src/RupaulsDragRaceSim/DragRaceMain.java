@@ -1,5 +1,7 @@
 package RupaulsDragRaceSim;
 
+import java.util.Random;
+
 public class DragRaceMain {
     public static void main(String[] args) {
 
@@ -25,14 +27,38 @@ public class DragRaceMain {
         // Challenges[] challengeSelector = new Challenges[];
 
 
-        Runway challengeOne = new Runway();
-        Queen winner = challengeOne.runwayWinner(queenBank);
+        Runway rWaychallengeOne = new Runway();
+        Queen winner = rWaychallengeOne.runwayWinner(queenBank);
 
 
         Challenges queensLeft = new Challenges();
         queensLeft.queensRemaining(queenBank);
 
-        Challenges challengesBank = new Challenges[]{}
+
+        Challenges snatchGame = new Challenges();
+        Challenges bookBall = new Challenges();
+        Challenges victoriaBall = new Challenges();
+        Challenges politicalAd = new Challenges();
+        Challenges dragOnDime = new Challenges();
+        Challenges dragDebate = new Challenges();
+        Challenges thatBitch = new Challenges();
+
+        Challenges[] challengesBank = new Challenges[]{snatchGame, bookBall, victoriaBall, politicalAd, dragOnDime, dragDebate, thatBitch};
+
+        Challenges currentChallenge = getRandomChallenge(challengesBank);
+
 
     }
+
+    public static Challenges getRandomChallenge(Challenges[] challengesBank) {
+        Challenges currentChallenge = new Challenges();
+        Random rand = new Random();
+        int randomIndex = rand.nextInt(challengesBank.length);
+        for (int i = 0; i < challengesBank.length; i++) {
+            challengesBank[randomIndex] = challengesBank[i];
+        }
+
+        return currentChallenge;
+    }
+
 }
