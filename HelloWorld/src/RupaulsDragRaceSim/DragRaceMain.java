@@ -1,64 +1,106 @@
 package RupaulsDragRaceSim;
 
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class DragRaceMain {
+
+    private static int topTier() {
+        return ThreadLocalRandom.current().nextInt(7, 10);
+    }
+
+    private static int midTier() {
+        return ThreadLocalRandom.current().nextInt(4, 7);
+    }
+
+    private static int bottomTier() {
+        return ThreadLocalRandom.current().nextInt(1, 4);
+    }
+
+
     public static void main(String[] args) {
 
-        Queen aquaria = new Queen("Aquaria", 7, 7, 9, 9, 8, 8, 8, 7);
-        Queen eureka = new Queen("Eureka", 8, 8, 6, 7, 8, 7, 8, 8);
-        Queen kameronMichaels = new Queen("Kameron Michaels", 10, 6, 6, 7, 5, 6, 9, 5);
-        Queen asiaOhara = new Queen("Asia O'Hara", 7, 8, 8, 7, 6, 7, 7, 8);
-        Queen mizCracker = new Queen("Miz Cracker", 7, 7, 7, 7, 8, 7, 7, 8);
-        Queen monetXchange = new Queen("Monet X Change", 8, 7, 4, 5, 8, 6, 9, 9);
-        Queen theVixen = new Queen("The Vixen", 6, 5, 9, 5, 5, 7, 6, 6);
-        Queen moniqueHeart = new Queen("Monique Heart", 8, 8, 7, 6, 8, 8, 7, 9);
-        Queen blairStClair = new Queen("Blair St. Clair", 4, 5, 1, 6, 5, 5, 5, 5);
-        Queen mayhemMiller = new Queen("Mayhem Miller", 5, 4, 7, 7, 5, 5, 5, 5);
-        Queen dustayRay = new Queen("Dusty Ray Bottoms", 6, 6, 5, 5, 6, 6, 7, 5);
-        Queen yuhua = new Queen("Yuhua Hamasaki", 4, 4, 5, 5, 4, 5, 6, 5);
-        Queen kalorie = new Queen("Kalorie Karbdashian", 6, 4, 7, 4, 4, 3, 7, 4);
-        Queen vanjie = new Queen("Vanessa Vanjie", 6, 4, 7, 4, 7, 3, 3, 9);
+
+        Queen aquaria = new Queen("Aquaria", midTier(), midTier(), topTier(), topTier(), topTier(), topTier(), topTier(), midTier(), false, 0);
+        Queen eureka = new Queen("Eureka", topTier(), topTier(), midTier(), midTier(), topTier(), midTier(), midTier(), topTier(), false, 0);
+        Queen kameronMichaels = new Queen("Kameron Michaels", topTier(), midTier(), midTier(), midTier(), midTier(), midTier(), topTier(), midTier(), false, 0);
+        Queen asiaOhara = new Queen("Asia O'Hara", midTier(), topTier(), topTier(), topTier(), midTier(), midTier(), midTier(), topTier(), false, 0);
+        Queen mizCracker = new Queen("Miz Cracker", midTier(), midTier(), midTier(), midTier(), topTier(), midTier(), midTier(), topTier(), false, 0);
+        Queen monetXchange = new Queen("Monet X Change", topTier(), midTier(), midTier(), midTier(), topTier(), midTier(), topTier(), topTier(), false, 0);
+        Queen theVixen = new Queen("The Vixen", midTier(), midTier(), midTier(), midTier(), midTier(), midTier(), midTier(), topTier(), false, 0);
+        Queen moniqueHeart = new Queen("Monique Heart", topTier(), topTier(), midTier(), midTier(), topTier(), topTier(), midTier(), topTier(), false, 0);
+        Queen blairStClair = new Queen("Blair St. Clair", bottomTier(), midTier(), midTier(), midTier(), midTier(), bottomTier(), midTier(), midTier(), false, 0);
+        Queen mayhemMiller = new Queen("Mayhem Miller", midTier(), midTier(), topTier(), midTier(), midTier(), midTier(), midTier(), bottomTier(), false, 0);
+        Queen dustayRay = new Queen("Dusty Ray Bottoms", midTier(), midTier(), midTier(), midTier(), midTier(), midTier(), midTier(), midTier(), false, 0);
+        Queen yuhua = new Queen("Yuhua Hamasaki", bottomTier(), bottomTier(), midTier(), midTier(), bottomTier(), midTier(), midTier(), midTier(), false, 0);
+        Queen kalorie = new Queen("Kalorie Karbdashian", midTier(), bottomTier(), midTier(), bottomTier(), bottomTier(), bottomTier(), midTier(), bottomTier(), false, 0);
+        Queen vanjie = new Queen("Vanessa Vanjie", midTier(), bottomTier(), bottomTier(), bottomTier(), midTier(), bottomTier(), bottomTier(), topTier(), false, 0);
 
 
         Queen[] queenBank = new Queen[]{aquaria, eureka, kameronMichaels, asiaOhara, mizCracker, monetXchange, theVixen,
                 moniqueHeart, blairStClair, mayhemMiller, dustayRay, yuhua, kalorie, vanjie};
 
-        // Challenges[] challengeSelector = new Challenges[];
+
+//        Runway rWaychallengeOne = new Runway();
+//        Queen winner = rWaychallengeOne.runwayWinner(queenBank);
 
 
-        Runway rWaychallengeOne = new Runway();
-        Queen winner = rWaychallengeOne.runwayWinner(queenBank);
+        // Challenge queensLeft = new Challenge();
+        // queensLeft.queensRemaining(queenBank);
 
 
-        Challenges queensLeft = new Challenges();
-        queensLeft.queensRemaining(queenBank);
+        Challenge snatchGame = new SnatchGame();
+        Challenge bookBall = new BookBall();
+        Challenge politicalAd = new PoliticalAd();
+        Challenge dragDime = new DragDime();
+        Challenge poseBall = new PoseBall();
+        Challenge dragDebate = new DragDebate();
+        Challenge viralQueens = new viralQueens();
+        Challenge missRona = new missRona();
+        Challenge clubKid = new clubKid();
+        Challenge botanicalBall = new botanicalBall();
+        Challenge[] challengesBank = new Challenge[]{snatchGame, bookBall, politicalAd, dragDime, poseBall, dragDebate, viralQueens, missRona, clubKid, botanicalBall};
 
 
-        Challenges snatchGame = new Challenges();
-        Challenges bookBall = new Challenges();
-        Challenges victoriaBall = new Challenges();
-        Challenges politicalAd = new Challenges();
-        Challenges dragOnDime = new Challenges();
-        Challenges dragDebate = new Challenges();
-        Challenges thatBitch = new Challenges();
+        for (Challenge currentChallenge : challengesBank) {
+            currentChallenge.getWinner(queenBank);
+            Queen eliminatedQueen = currentChallenge.getEliminated(queenBank);
 
-        Challenges[] challengesBank = new Challenges[]{snatchGame, bookBall, victoriaBall, politicalAd, dragOnDime, dragDebate, thatBitch};
-
-        Challenges currentChallenge = getRandomChallenge(challengesBank);
+            for (int i = 0; i < queenBank.length; i++) {
+                if (eliminatedQueen.equals(queenBank[i])) {
+                    queenBank[i].setIsEliminated(true);
 
 
-    }
-
-    public static Challenges getRandomChallenge(Challenges[] challengesBank) {
-        Challenges currentChallenge = new Challenges();
-        Random rand = new Random();
-        int randomIndex = rand.nextInt(challengesBank.length);
-        for (int i = 0; i < challengesBank.length; i++) {
-            challengesBank[randomIndex] = challengesBank[i];
+                }
+            }
         }
 
-        return currentChallenge;
+        System.out.println("\n");
+
+        Queen americasDragSuperstar = null;
+        Random rand = new Random();
+        int winner = rand.nextInt(3);
+
+
+        Queen[] top4Bank = new Queen[4];
+
+
+        int j = 0;
+        for (int i = 0; i < queenBank.length; i++) {
+            if (!queenBank[i].getIsEliminated()) {
+                System.out.println(queenBank[i].getDragName() + " is in the final 4");
+                System.out.println();
+                top4Bank[j] = queenBank[i];
+                j++;
+            }
+        }
+        americasDragSuperstar = top4Bank[winner];
+
+
+        System.out.println("\n\n\n\n");
+        System.out.println("Congratulations " + americasDragSuperstar.getDragName() + " you are America's Next Drag Superstar");
+
     }
+
 
 }

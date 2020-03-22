@@ -64,10 +64,10 @@ public class Runway {
                 "I'm sorry my dear, you are up for elimination");
 
 
-        Challenges elimination = new Challenges();
-        Queen eliminatedGirl = elimination.isEliminated(bottomQueen, bottomQueen2);
-        return eliminatedGirl;
+//        Challenges elimination = new Challenges();
+//        Queen eliminatedGirl = elimination.isEliminated(bottomQueen, bottomQueen2);
+        return null;
     }
-
-
 }
+
+

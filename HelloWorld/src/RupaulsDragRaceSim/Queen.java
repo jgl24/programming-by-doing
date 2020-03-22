@@ -10,10 +10,12 @@ public class Queen {
     private double uniqStat;
     private double lipSyncStat;
     private double personalityStat;
+    private boolean isEliminated;
+    private double wins;
 
 
     public Queen(String dragName, double danceStat, double actingStat,
-                 double sewingStat, double runwayStat, double humorStat, double uniqStat, double lipSyncStat, double personality) {
+                 double sewingStat, double runwayStat, double humorStat, double uniqStat, double lipSyncStat, double personality, boolean isEliminated, double wins) {
         this.dragName = dragName;
         this.danceStat = inRange(danceStat);
         this.actingStat = inRange(actingStat);
@@ -23,6 +25,8 @@ public class Queen {
         this.uniqStat = inRange(uniqStat);
         this.lipSyncStat = inRange(lipSyncStat);
         this.personalityStat = personality;
+        this.isEliminated = isEliminated;
+        this.wins = wins;
     }
 
     public String getDragName() {
@@ -71,6 +75,22 @@ public class Queen {
         }
     }
 
+    public boolean getIsEliminated() {
+        return isEliminated;
+    }
+
+    public void setIsEliminated(boolean isEliminated) {
+        this.isEliminated = isEliminated;
+    }
+
+    public double getWins() {
+        return wins;
+    }
+
+    public void setWins(double wins) {
+        this.wins = wins;
+    }
+
 
     public double getHumorStat() {
         return humorStat;
@@ -110,6 +130,5 @@ public class Queen {
         } else {
             throw new RuntimeException();
         }
-        // throw exception here instead to have the user input score in range
     }
 }
